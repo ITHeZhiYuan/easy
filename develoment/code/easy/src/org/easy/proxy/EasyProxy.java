@@ -11,19 +11,20 @@ import net.sf.cglib.proxy.Enhancer;
  */
 public class EasyProxy {
 
-	public static Object newInstance(Class<?> clz,EasyProxyInterface proxyInterface){
+	@SuppressWarnings("unchecked")
+	public static <T> T newInstance(Class<?> clz,EasyProxyInterface proxyInterface){
 		Enhancer enhancer = new Enhancer();
 		enhancer.setCallback(proxyInterface);
 		enhancer.setSuperclass(clz);
-		return enhancer.create();
+		return (T)enhancer.create();
 	}
 	
-	public static Object newInstanceModel(Class<? extends EasyEntity> clz){
+	public static <T> T newInstanceModel(Class<? extends EasyEntity> clz){
 		return newInstance(clz, new EasyModelProxy());
 	}
 	
-	public static Object newInstanceService(Class<?> clz){
-		return newInstance(clz, new EasyModelProxy());
+	public static <T> T newInstanceService(Class<?> clz){
+		return newInstance(clz, new EasyServiceProxy());
 	}
 	
 }

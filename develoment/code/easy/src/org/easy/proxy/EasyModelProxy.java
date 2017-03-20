@@ -14,18 +14,19 @@ class EasyModelProxy extends EasyProxyInterface{
 
 	@Override
 	public Object execute(Object object, Method method, Object[] params, MethodProxy proxy) throws Throwable {
-		// TODO Auto-generated method stub
 		return super.execute(object, method, params, proxy);
 	}
 	
 	@Override
 	public Object after(Object result) {
+		if(result == null){
+			result = "不能为空";
+		}
 		return super.after(result);
 	}
 	
 	@Override
 	public Object exception(Object object, Method method, Object[] params, MethodProxy proxy) throws Exception {
-		// TODO Auto-generated method stub
 		return super.exception(object, method, params, proxy);
 	}
 	
