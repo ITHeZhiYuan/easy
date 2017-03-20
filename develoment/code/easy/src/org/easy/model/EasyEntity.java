@@ -1,39 +1,20 @@
 package org.easy.model;
 
-public class EasyEntity implements EasyModel<EasyEntity>{
-
-	@Override
-	public EasyEntity save() {
+public abstract class EasyEntity{
+	
+	public <T> T save(String...args) {
+		return null;
+	}
+	
+	public <T> T update(String...args){
 		return null;
 	}
 
-	@Override
-	public EasyEntity where() {
+	public <T> T query(String...args) {
 		return null;
 	}
 
-	@Override
-	public EasyEntity query() {
-		return null;
-	}
-
-	@Override
-	public EasyEntity get() {
-		return null;
-	}
-
-	@Override
-	public EasyEntity load() {
-		return null;
-	}
-
-	@Override
-	public EasyEntity order() {
-		return null;
-	}
-
-	@Override
-	public EasyEntity group() {
+	public <T> T load(String...args) {
 		return null;
 	}
 

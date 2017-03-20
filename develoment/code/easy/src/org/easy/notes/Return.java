@@ -5,6 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.easy.adapter.EasyAdapter;
 import org.easy.enumeration.Adapter;
 
 /**
@@ -23,5 +24,5 @@ public @interface Return {
 	/**
 	 * 适配器的Class对象
 	 */
-	Class<?> adapter() default Adapter.class;
+	Class<?> adapter() default EasyAdapter.class;
 }

@@ -9,7 +9,10 @@ import net.sf.cglib.proxy.Enhancer;
  * 作者:何志远
  * 描述:创建动态代理对象
  */
-public class EasyProxy {
+public final class EasyProxy {
+	
+	private final static EasyModelProxy MODEL_PROXY = new EasyModelProxy();
+	private final static EasyServiceProxy SERVICE_PROXY = new EasyServiceProxy();
 
 	@SuppressWarnings("unchecked")
 	public static <T> T newInstance(Class<?> clz,EasyProxyInterface proxyInterface){
@@ -20,11 +23,11 @@ public class EasyProxy {
 	}
 	
 	public static <T> T newInstanceModel(Class<? extends EasyEntity> clz){
-		return newInstance(clz, new EasyModelProxy());
+		return newInstance(clz, MODEL_PROXY);
 	}
 	
 	public static <T> T newInstanceService(Class<?> clz){
-		return newInstance(clz, new EasyServiceProxy());
+		return newInstance(clz, SERVICE_PROXY);
 	}
 	
 }

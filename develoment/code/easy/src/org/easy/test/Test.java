@@ -1,12 +1,18 @@
 package org.easy.test;
 
 import org.easy.model.EasyEntity;
-import org.easy.notes.Controller;
+import org.easy.notes.Attribute;
+import org.easy.notes.Model;
+import org.easy.notes.Return;
 
-@Controller
+@Model
 public class Test extends EasyEntity{
-
-	public Object test(){
+	
+	@Attribute
+	public String t = "t";
+	
+	@Return
+	public Object test(String str){
 		System.out.println("test");
 		return null;
 	}
